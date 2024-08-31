@@ -1,23 +1,25 @@
-import logo from './logo.svg';
+// import logo from './logo.svg';
 import './App.css';
+import calamardo from './calamardo.jpg';
+import Saludo from './saludo';
+import Contador from './contador';
+import ContadorAlarm from './contadorAlarm';
+import Timer from './timer';
+import ButtonTimer from './buttonTimer';
+
 
 function App() {
   return (
+    <div>
+    <Saludo nombre="Mundo" />
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+     <h1>¡Hola Mundo!</h1>
+      <img src={calamardo} alt="calamardo" width="200" />
+      <Contador />
+      <ContadorAlarm />
+      <Timer />
+      <ButtonTimer />
+    </div>
     </div>
   );
 }
