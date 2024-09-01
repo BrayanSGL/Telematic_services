@@ -9,7 +9,7 @@ import ButtonTimer from './buttonTimer';
 import Users from './users';
 import Slider from './slider';
 //import 'boostrap/dist/css/bootstrap.min.css';
-import LoadingBar from './loadingBar';
+//import LoadingBar from './loadingBar';
 
 function App() {
   return (

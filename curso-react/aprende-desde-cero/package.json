@@ -1,0 +1,15 @@
+{
+  "name": "aprende-desde-cero",
+  "version": "1.0.0",
+  "description": "React es un biblioteca de JavaScript para construir interfaces de usuario. Es una de las herramientas más populares para el desarrollo de aplicaciones web modernas.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "aprende-desde-cero": "file:"
+  }
+}
