@@ -6,7 +6,10 @@ import Contador from './contador';
 import ContadorAlarm from './contadorAlarm';
 import Timer from './timer';
 import ButtonTimer from './buttonTimer';
-
+import Users from './users';
+import Slider from './slider';
+//import 'boostrap/dist/css/bootstrap.min.css';
+import LoadingBar from './loadingBar';
 
 function App() {
   return (
@@ -19,6 +22,9 @@ function App() {
       <ContadorAlarm />
       <Timer />
       <ButtonTimer />
+      <Users />
+      <Slider/>
+      {/* <LoadingBar/> */}
     </div>
     </div>
   );
