@@ -1,13 +1,13 @@
-import logo from "./logo.svg";
 import "./App.css";
-import Navbar from "./components/navbar";
+import { Router } from "./navigation/Router";
 
-function App() {
+
+export const App = () => {
   return (
-    <frameElement>
-      <Navbar />
-    </frameElement>
+    <>
+      <Router />
+
+    </>
   );
 }
 
-export default App;
