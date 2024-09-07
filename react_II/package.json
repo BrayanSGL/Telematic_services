@@ -1,5 +1,5 @@
 {
-  "name": "node_js_i",
+  "name": "react_ii",
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
@@ -8,10 +8,5 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "description": "",
-  "dependencies": {
-    "cowsay": "^1.6.0",
-    "express": "^4.19.2",
-    "node_js_i": "file:"
-  }
+  "description": ""
 }
