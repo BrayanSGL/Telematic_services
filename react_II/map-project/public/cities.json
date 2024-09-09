@@ -1,0 +1,36 @@
+{
+  "cities": [
+    {
+      "name": "Bogotá",
+      "code": "BOG"
+    },
+    {
+      "name": "Medellín",
+      "code": "MDE"
+    },
+    {
+      "name": "Cali",
+      "code": "CLO"
+    },
+    {
+      "name": "Cartagena",
+      "code": "CTG"
+    },
+    {
+      "name": "Pereira",
+      "code": "PEI"
+    },
+    {
+      "name": "Pasto",
+      "code": "PSO"
+    },
+    {
+      "name": "Bucaramanga",
+      "code": "BGA"
+    },
+    {
+      "name": "Barranquilla",
+      "code": "BAQ"
+    }
+  ]
+}
