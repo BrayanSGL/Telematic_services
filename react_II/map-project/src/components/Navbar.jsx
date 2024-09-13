@@ -19,7 +19,7 @@ export const Navbar = () => {
       <Link to="/display" className="navbar__link">
         Visualización
       </Link>
-      <button className="navbar__logout" onClick={handleLogout}>
+      <button className="button__logout" onClick={handleLogout}>
         Cerrar Sesión
       </button>
     </nav>

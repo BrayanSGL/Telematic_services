@@ -42,13 +42,21 @@
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
 }
 
-.navbar__logout {
+.button__logout {
     color: white;
     font-size: 1rem;
     text-decoration: none;
     padding: 0.5rem 1rem;
     transition: color 0.3s ease, background-color 0.3s ease;
     border-radius: 5px;
+    background-color: #ff4d4d;
+    border: none;
+}
+
+.button__logout:hover {
+    color: #fff;
+    background-color: #ff3333;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
 }
 
 /* Responsive Design */
