@@ -1,12 +1,60 @@
-import Map from '../map';
-import './DisplayView.css';
+import Map from "../map";
+import "./DisplayView.css";
+import { RouteServices } from "../../services/routes";
+import cities from "../../../public/cities.json";
+import { validateSession } from "../../authentication/auth";
+import { useEffect, useState } from "react";
 
 export const DisplayView = () => {
+  const [routes, setRoutes] = useState([]);
+  const [startLocation, setStartLocation] = useState("");
+  const [endLocation, setEndLocation] = useState("");
+  const [routeName, setRouteName] = useState("");
+  const [user, setUser] = useState("");
+
+  useEffect(() => {
+    getUser();
+    getRoutes();
+  }, []);
+
+  const getRoutes = async () => {
+    const routeService = new RouteServices();
+    const routes = await routeService.getRoutes();
+    setRoutes(routes);
+    for (let i = 0; i < cities.length; i++) {
+      if (cities[i].name === routes[0].start) {
+        setStartLocation(cities[i].coordinates);
+      }
+      if (cities[i].name === routes[0].end) {
+        setEndLocation(cities[i].coordinates);
+      }
+    }
+  };
+
+  const getUser = async () => {
+    const user = await validateSession();
+    setUser(user);
+  };
+
   return (
     <div className="display-view-container">
-      <h1 className="display-view-title">Rutas del Usuario: []</h1>
-      <div className="map-container">
-        <Map />
+      <h1 className="display-view-title">Rutas de: {user}</h1>
+      <div className="display-main">
+        <div className="map-container">
+          <Map />
+        </div>
+        <aside className="routes-container">
+          <h2 className="routes-title">Rutas</h2>
+          <ul className="routes-list">
+            {routes.map((route, index) => (
+              <li key={index} className="route-item">
+                <h3 className="route-name">{route.routeName}</h3>
+                <p className="route-start">Inicio: {route.start}</p>
+                <p className="route-end">Fin: {route.end}</p>
+              </li>
+            ))}
+          </ul>
+        </aside>
       </div>
     </div>
   );
