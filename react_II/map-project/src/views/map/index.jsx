@@ -9,6 +9,8 @@ import {
 import L from "leaflet";
 import "leaflet/dist/leaflet.css";
 import cities from "../../../public/cities.json";
+import { AudioServices } from "../../services/audio";
+import { WebcamService } from "../../services/webcam";
 
 // Crear un nuevo icono para el marcador
 const customIcon = L.icon({
@@ -22,6 +24,7 @@ const customIcon = L.icon({
 
 const Map = ({ route }) => {
   const center = [4.711, -74.0721]; // Latitud y longitud de Bogotá
+  const audioService = new AudioServices();
 
   const getCoordinates = (cityName) => {
     const city = cities.find((city) => city.name === cityName);
@@ -58,6 +61,7 @@ const Map = ({ route }) => {
           currentRouteIndex++;
           currentPointIndex = 0;
           clearInterval(interval);
+          audioService.playAudio();
           animateMarker();
         } else {
           const newLat = start[0] + latDiff * currentPointIndex;
