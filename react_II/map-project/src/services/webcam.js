@@ -1,24 +1,35 @@
 export class WebcamService {
-  constructor(videoId, canvasId) {
-    this.video = document.getElementById(videoId);
-    this.canvas = document.getElementById(canvasId);
-    this.constraints = {
-      video: { width: 680, height: 480 }
-    };
-    this.context = this.canvas.getContext('2d');
+  constructor(videoElement, canvasElement) {
+    this.videoElement = videoElement;
+    this.canvasElement = canvasElement;
+    this.stream = null;
   }
 
-  async init() {
+  // Método para iniciar la webcam
+  async startWebcam() {
     try {
-      const stream = await navigator.mediaDevices.getUserMedia(this.constraints);
-      this.video.srcObject = stream;
-    } catch (e) {
-      console.error('Error accessing webcam: ', e);
+      this.stream = await navigator.mediaDevices.getUserMedia({ video: true });
+      this.videoElement.srcObject = this.stream;
+      this.videoElement.play();
+    } catch (error) {
+      console.error("Error al acceder a la webcam:", error);
     }
   }
 
-  takePhoto() {
-    this.context.drawImage(this.video, 0, 0, 680, 480);
+  // Método para capturar la imagen
+  captureImage() {
+    const context = this.canvasElement.getContext('2d');
+    context.drawImage(this.videoElement, 0, 0, this.canvasElement.width, this.canvasElement.height);
+    return this.canvasElement.toDataURL('image/png'); // Devuelve la imagen como data URL
+  }
+
+  // Método para detener la webcam
+  stopWebcam() {
+    if (this.stream) {
+      const tracks = this.stream.getTracks();
+      tracks.forEach(track => track.stop());
+    }
+    this.videoElement.srcObject = null;
   }
 }
 

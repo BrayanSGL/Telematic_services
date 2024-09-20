@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import {
   MapContainer,
   TileLayer,
@@ -25,6 +25,10 @@ const customIcon = L.icon({
 const Map = ({ route }) => {
   const center = [4.711, -74.0721]; // Latitud y longitud de Bogotá
   const audioService = new AudioServices();
+  const videoRef = useRef(null);
+  const canvasRef = useRef(null);
+  const [webcamService, setWebcamService] = useState(null);
+  const [capturedImage, setCapturedImage] = useState(null);
 
   const getCoordinates = (cityName) => {
     const city = cities.find((city) => city.name === cityName);
@@ -40,6 +44,16 @@ const Map = ({ route }) => {
   const [markerPosition, setMarkerPosition] = useState(center);
 
   useEffect(() => {
+    const webcamServiceInstance = new WebcamService(videoRef.current, canvasRef.current);
+    setWebcamService(webcamServiceInstance);
+    webcamServiceInstance.startWebcam();
+
+    return () => {
+      webcamServiceInstance.stopWebcam();
+    };
+  }, []);
+
+  useEffect(() => {
     let currentRouteIndex = 0;
     let currentPointIndex = 0;
     let interval;
@@ -47,6 +61,10 @@ const Map = ({ route }) => {
     const animateMarker = () => {
       if (currentRouteIndex >= route.length) {
         clearInterval(interval);
+        if (webcamService) {
+          const image = webcamService.captureImage();
+          setCapturedImage(image);
+        }
         return;
       }
 
@@ -75,35 +93,45 @@ const Map = ({ route }) => {
     animateMarker();
 
     return () => clearInterval(interval);
-  }, [route]);
+  }, [route, webcamService]);
 
   return (
-    <MapContainer
-      center={center}
-      zoom={5}
-      style={{ height: "400px", width: "600px" }}
-    >
-      <TileLayer
-        url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-        attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-      />
-      {route.map((route, index) => (
-        <Polyline
-          key={index}
-          positions={getRouteCoordinates(route)}
-          color="blue"
-        >
+    <div>
+      <MapContainer
+        center={center}
+        zoom={5}
+        style={{ height: "400px", width: "600px" }}
+      >
+        <TileLayer
+          url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+          attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+        />
+        {route.map((route, index) => (
+          <Polyline
+            key={index}
+            positions={getRouteCoordinates(route)}
+            color="blue"
+          >
+            <Popup>
+              <h3>{route.routeName}</h3>
+            </Popup>
+          </Polyline>
+        ))}
+        <Marker position={markerPosition} icon={customIcon}>
           <Popup>
-            <h3>{route.routeName}</h3>
+            <h3>Marcador Animado</h3>
           </Popup>
-        </Polyline>
-      ))}
-      <Marker position={markerPosition} icon={customIcon}>
-        <Popup>
-          <h3>Marcador Animado</h3>
-        </Popup>
-      </Marker>
-    </MapContainer>
+        </Marker>
+      </MapContainer>
+      <video ref={videoRef} style={{ display: "none" }}></video>
+      <canvas ref={canvasRef} style={{ display: "none" }}></canvas>
+      {capturedImage && (
+        <div style={{ marginTop: "20px" }}>
+          <h3>Imagen Capturada:</h3>
+          <img src={capturedImage} alt="captured"/>
+        </div>
+      )}
+    </div>
   );
 };
 
