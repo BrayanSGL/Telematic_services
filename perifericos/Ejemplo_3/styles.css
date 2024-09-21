@@ -1,0 +1,47 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: #333;
+}
+
+canvas{
+    display: block;
+    margin: 0 auto;
+    background-color: #fffdfd;
+    width: 100%;
+
+}
+
+button {
+    display: block;
+    margin: 0 auto;
+    background-color: #fffdfd;
+    width: 100%;
+    padding: 10px;
+    font-size: 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+button:hover {
+    background-color: #c66363;
+}
+
+input {
+    display: block;
+    margin: 0 auto;
+    background-color: #fffdfd;
+    width: 100%;
+    padding: 10px;
+    font-size: 20px;
+    border: none;
+    border-radius: 5px;
+    margin-top: 10px;
+}
+
+input:hover {
+    background-color: #c66363;
+}
