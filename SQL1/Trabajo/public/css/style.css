@@ -1,0 +1,17 @@
+/* Reset universal de estilos */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto Condensed', sans-serif;
+    background: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiB2aWV3Qm94PSIwIDAgMTIwMCA3MjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHBhdGggZD0iTTEyMDAsMGExMjAwLDEyMDAwLDAsMSwxLTEyMDAsMTIwMDAsMTIwMCwxMjAwMCwwLDAsMSwxMjAwLTEyMDAwWiIgZmlsbD0iIzE1MjY5RSIvPjxwYXRoIGQ9Ik0xMjAwLDM1MDRhMTI0LDAsMCwxLTEyMCwwbC0xMjAsLTY1YS45Mi45MiwwLDAsMSwwLTE1NEwxMDgwLDQ4YS45Mi45MiwwLDAsMSwxNTAsMFoiIGZpbGw9IiNGRkYiLz48L3N2Zz4=') no-repeat center center;
+    background-size: cover;
+    color: #15269E; /* Azul de la UEFA Champions League */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}

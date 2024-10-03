@@ -1,20 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <link rel="stylesheet" href="./styles.css">
-</head>
-<body onload="dibujar()">
-    <canvas  id="canvas"></canvas>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body onload="dibujar()">
+    <canvas id="canvas"></canvas>
     <button id="subir">Subir</button>
     <button id="bajar">Bajar</button>
     <button id="izquierda">Izquierda</button>
     <button id="derecha">Derecha</button>
-    
-<input type="button" value="Imprimir" onclick="javascript:window.print()">
 
+    <input type="button" value="Imprimir" onclick="javascript:window.print()" />
+
+    <!--Compartir en facebook Ej. [URL]=www.google.com.co-->
+    <a href="https://www.facebook.com/sharer/sharer.php?u=www.google.com.co" target="_blank"
+      >Compartir en facebook</a
+    >
+    <!--Compartir en Twitter Ej. [text]=hola [url]=WEB [hashtag]=#tweet-->
+    <a
+      href="https://twitter.com/intent/tweet?text=[text]&url=[url]&hashtags=[hashtag]"
+    >
+      Comparte Twitter</a
+    >
+    <!--Compartir en Whatsapp Ej. [Text]=Mensaje-->
+    <a href="https://api.whatsapp.com/send?text=[text]">Comparte Whatsapp--</a>
     <script src="./Funciones.js"></script>
-</body>
+  </body>
 </html>

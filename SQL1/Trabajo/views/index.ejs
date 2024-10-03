@@ -1,0 +1,22 @@
+<%- include("./templates/header.ejs", {Title: 'La gloriosa premier', link_css:
+'home'}) %>
+<div class="container">
+  <h1 class="main-title"><%= Titulo %></h1>
+  <h2 class="sub-title">Equipos de la Premier League</h2>
+
+  <table id="tabla" class="table">
+    <thead>
+      <tr>
+        <th>Nombre del Equipo</th>
+        <th>Ciudad</th>
+        <th>Estadio</th>
+        <th>Capacidad del Estadio</th>
+        <th>Entrenador</th>
+      </tr>
+    </thead>
+    <tbody>
+      <!-- Rows will be dynamically inserted here -->
+    </tbody>
+  </table>
+</div>
+<%- include("./templates/footer.ejs") %>

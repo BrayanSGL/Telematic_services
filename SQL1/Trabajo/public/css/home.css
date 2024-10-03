@@ -1,0 +1,77 @@
+body {
+    font-family: 'Roboto Condensed', sans-serif;
+    background: linear-gradient(135deg, #001f54, #15269E); /* Azul oscuro y azul UEFA Champions League */
+    color: #fff;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.container {
+    padding: 40px;
+    background: rgba(0, 0, 50, 0.9); /* Fondo azul oscuro con opacidad */
+    border-radius: 10px;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5);
+    max-width: 1200px;
+    width: 100%;
+    text-align: center;
+}
+
+.main-title {
+    font-size: 3.5rem;
+    margin-bottom: 20px;
+    color: #FFD700; /* Amarillo dorado */
+    text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.5);
+}
+
+.sub-title {
+    font-size: 2.2rem;
+    margin-bottom: 30px;
+    color: #FFD700; /* Amarillo dorado */
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.4);
+}
+
+.table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 40px;
+    background-color: rgba(255, 255, 255, 0.1); /* Fondo semitransparente */
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.table thead {
+    background-color: #15269E; /* Azul oscuro UEFA */
+    color: #fff;
+}
+
+.table th, .table td {
+    padding: 15px;
+    text-align: center;
+    border: none;
+    color: #FFFFFF;
+    font-size: 1.2rem;
+}
+
+.table tbody tr {
+    background-color: rgba(255, 255, 255, 0.1);
+    transition: background-color 0.3s ease;
+}
+
+.table tbody tr:nth-child(even) {
+    background-color: rgba(255, 255, 255, 0.2); /* Filas alternantes más claras */
+}
+
+.table tbody tr:hover {
+    background-color: #FFD700; /* Efecto hover en filas */
+    color: #001f54; /* Azul oscuro de UEFA */
+    font-weight: bold;
+}
+
+.table tbody td {
+    border-bottom: 1px solid #15269E; /* Línea inferior en cada fila */
+}
+

@@ -8,7 +8,6 @@ export const DisplayView = () => {
   const [routes, setRoutes] = useState([]);
   const [user, setUser] = useState("");
 
-
   useEffect(() => {
     getUser();
     getRoutes();
@@ -39,7 +38,7 @@ export const DisplayView = () => {
       <h1 className="display-view-title">Rutas de: {user}</h1>
       <div className="display-main">
         <div className="map-container">
-          <Map route={routes}/>
+          <Map route={routes} />
         </div>
         <aside className="routes-container">
           <h2 className="routes-title">Rutas</h2>
@@ -53,6 +52,27 @@ export const DisplayView = () => {
             ))}
           </ul>
         </aside>
+        <section>
+          <a
+            target="_blank"
+            href="https://www.facebook.com/sharer/sharer.php?u=www.google.com.co"
+          >
+            Compartir en facebook
+          </a>
+          <a
+            target="_blank"
+            href="https://twitter.com/intent/tweet?text=[text]&url=[url]&hashtags=[hashtag]"
+          >
+            {" "}
+            Comparte Twitter
+          </a>
+          <a target="_blank" href="https://api.whatsapp.com/send?text=[text]">
+            Comparte Whatsapp--
+          </a>
+
+        
+          <button onClick={() => window.print()}>Imprimir</button>
+        </section>
       </div>
     </div>
   );
